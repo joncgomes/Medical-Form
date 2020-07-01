@@ -16,7 +16,7 @@ import PrintIcon from "@material-ui/icons/Print";
 
 const styles = () => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   primaryColor: {
     color: "#FFF",
@@ -33,7 +33,7 @@ const styles = () => ({
     alignItems: "center",
   },
   mainContent: {
-    padding: 40,
+    padding: 60,
   },
   secondaryContainer: {
     padding: "110px 25px",
@@ -1036,7 +1036,7 @@ function WireInfo(props) {
                     value={values.infohb}
                   />
                 </Grid>
-
+                
                 <Grid item xs={7}>
                   <Typography className={classes.lineBreak} variant="h6">
                     EXAME FÍSICO
@@ -1051,7 +1051,83 @@ function WireInfo(props) {
                     name="examefisico"
                     onChange={handleInputChange}
                     value={values.examefisico}
+                    
                   />
+              {/*      <Button
+                      onClick={printPage}
+                      variant="outlined"
+                      color="primary"
+                      style={{marginTop:20}}
+                      style={{ fontSize: 20 }}
+                    >
+                      Imprimir Formulário
+                      <PrintIcon />
+                    </Button> */}
+                </Grid>
+                <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="h6">
+                    CAPACIDADE FUNCIONAL
+                  </Typography>
+                  <Divider />
+                  
+                </Grid>
+                
+                <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                   METs
+                  </FormLabel>
+                  <FormControl component="fieldset">
+                    <RadioGroup row>
+                      <FormControlLabel
+                        value="maiorMetsSim"
+                        id="maiorMetsSim"
+                        label=">04 METs"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      <FormControlLabel
+                        value="menorMetsSim"
+                        id="menorMetsSim"
+                        label="<04 METs"
+                        control={<Radio />}
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  ABVDs
+                  </FormLabel>
+                  <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="abvdSimIndependente"
+                        id="abvdSimIndependente"
+                        label="INDEPENDENTE"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                       <FormControlLabel
+                        value="abvdSimdependente"
+                        id="abvdSimdependente"
+                        label="DEPENDENTE"
+                        control={<Radio color="green" />}
+                      />
+                      <FormControlLabel
+                        value="abvdSimParcialdependente"
+                        id="abvdSimParcialdependente"
+                        label="PARCIALMENTE DEPENDENTE"
+                        control={<Radio />}
+                      />
+                      
+                    </RadioGroup>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="h6">
+                   MEDICAÇÕES DE USO CONTÍNUO 
+                  </Typography>
+                  <Divider />
                 </Grid>
               </Grid>
             </Grid>
