@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { withStyles } from "@material-ui/core";
+import { withStyles, FormGroup } from "@material-ui/core";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import Grid from "@material-ui/core/Grid";
@@ -50,6 +50,21 @@ const styles = () => ({
   checked: {},
 });
 
+/* function calcular() {
+  const hb = Number(document.getElementById('valorHb').value);
+
+  if(hb == 0 || hb == null)
+  {
+    alert("Preencher HB");
+  }
+
+  else
+  {
+    alert("vai tomar no cu!")
+    var x =  (hb / 2);
+    
+  }
+} */
 function WireInfo(props) {
   const { classes } = props;
   const ref = useRef();
@@ -70,6 +85,9 @@ function WireInfo(props) {
   };
 
   const [values, setValues] = useState({ name: "" });
+  
+
+  
 
   return (
     <Dialog className={classes.root} fullWidth maxWidth="md" open={true}>
@@ -358,31 +376,32 @@ function WireInfo(props) {
 
                 <Grid item xs={7}>
                   <FormLabel className={classes.lineBreak} component="legend">
-                    INFECÇÃO RESPIRATÓRIA
+                    INFECÇÃO RESPIRATÓRIA MENOR QUE 01 MÊS  (FEBRE + ATRIBUIÇÕES)
                   </FormLabel>
                   <FormControl component="fieldset">
                     <RadioGroup row>
                       <FormControlLabel
-                        value="asmaSim2"
-                        id="asmaSim2"
+                        value="infRespSim"
+                        id="infRespSim"
                         label="Sim"
                         control={<Radio color="primary" />}
                         color="primary"
                       />
                       <FormControlLabel
-                        value="asmaNao2"
-                        id="asmaNao2"
+                        value="infRespNao"
+                        id="infRespNao"
                         label="Não"
                         control={<Radio />}
                       />
+                      
                     </RadioGroup>
                     <TextField
                       style={{ width: 400 }}
                       margin="normal"
                       variant="outlined"
-                      label="Digite o Histório de ASMA"
-                      id="condicao_cardiaca_ativaasma"
-                      name="condicao_cardiaca_ativaasma"
+                      label="Digite o Histório de Infecção Respiratória"
+                      id="condicaoRespiratoria"
+                      name="condicaoRespiratoria"
                       onChange={handleInputChange}
                       value={values.condicao_cardiaca_ativaasma}
                     />
@@ -1129,6 +1148,198 @@ function WireInfo(props) {
                   </Typography>
                   <Divider />
                 </Grid>
+                <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                  <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="medicaoUsoSim"
+                        id="medicaoUsoSim"
+                        label="Sim"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                       <FormControlLabel
+                        value="medicaoUsoNao"
+                        id="medicaoUsoNao"
+                        label="Não"
+                        control={<Radio color="green" />}
+                      />                      
+                    </RadioGroup>
+                    <TextField
+                      style={{ width: 400 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Medicações de Usuo Contínuo"
+                      id="medicaoUsoSim"
+                      name="medicaoUsoSim"
+                      onChange={handleInputChange}
+                      value={values.adversoSim}
+                    />
+                  </FormControl>
+                </Grid>
+
+                <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="h6">
+                   HISTÓRICO DE ALERGIAS 
+                  </Typography>
+                  <Divider />
+                </Grid>
+                <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                  <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="historicoAlergiaSim"
+                        id="historicoAlergiaSim"
+                        label="Sim"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                       <FormControlLabel
+                        value="historicoAlergiaNao"
+                        id="historicoAlergiaNao"
+                        label="Não"
+                        control={<Radio color="green" />}
+                      />                      
+                    </RadioGroup>
+                    <TextField
+                      style={{ width: 400 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Histórico de Alergias"
+                      id="historicoAlergiaSim"
+                      name="historicoAlergiaSim"
+                      onChange={handleInputChange}
+                      value={values.adversoSim}
+                    />
+                  </FormControl>
+                </Grid>
+              
+                <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="h6">
+                   PASSADO CIRÚRGICO 
+                  </Typography>
+                  <Divider />
+                </Grid>
+                <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                  <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="passadoCirurgicoSim"
+                        id="passadoCirurgicoSim"
+                        label="Sim"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                       <FormControlLabel
+                        value="passadoCirurgicoNao"
+                        id="passadoCirurgicoNao"
+                        label="Não"
+                        control={<Radio color="green" />}
+                      />                      
+                    </RadioGroup>
+                    <TextField
+                      style={{ width: 400 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Procedimentos Realizados"
+                      id="passadoCirurgicoSim"
+                      name="passadoCirurgicoSim"
+                      onChange={handleInputChange}
+                      value={values.adversoSim}
+                    />
+                    <TextField
+                      style={{ width: 400 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Procedimentos Realizados"
+                      id="passadoCirurgicoSim1"
+                      name="passadoCirurgicoSim1"
+                      onChange={handleInputChange}
+                      value={values.adversoSim}
+                    />
+                  </FormControl>
+                </Grid>
+
+                <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="h6">
+                   HISTÓRICO PESSOAL OU FAMILIAR DE EVENTO ADVSERSO RELACIONADO A ANESTESIA
+                  </Typography>
+                  <Divider />
+                </Grid>
+                <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                  <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="anestesiaAdversaSim"
+                        id="anestesiaAdversaSim"
+                        label="Sim"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                       <FormControlLabel
+                        value="anestesiaAdversaNao"
+                        id="anestesiaAdversaNao"
+                        label="Não"
+                        control={<Radio color="green" />}
+                      />                      
+                    </RadioGroup>
+                    <TextField
+                     
+                      style={{ width: 400 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Histórico Adverso de Anestesia Pessoal ou Familiar"
+                      id="anestesiaAdversaSim"
+                      name="anestesiaAdversaSim"
+                      onChange={handleInputChange}
+                      value={values.adversoSim}
+                    />
+                    
+                  </FormControl>
+                </Grid>
+                
+                <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="h6">
+                   EXAMES COMPLEMENTARES
+                  </Typography>
+                  <Divider />
+                </Grid>
+                <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  <b>Hb</b>
+                  </FormLabel>
+                  <FormGroup>
+                  <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Valor Hb"
+                      id="valorHb"
+                      input type = "text"
+                      name="valorHb"
+                   /*    onChange={calcular()} */
+                     
+                      
+                    />
+                
+                   
+                  </FormControl>
+                  </FormGroup>
+                </Grid>
+              
               </Grid>
             </Grid>
             <Grid item xs={4} className={classes.secondaryContainer}>
