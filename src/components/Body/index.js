@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { withStyles, FormGroup } from "@material-ui/core";
+import { withStyles, FormGroup, Table } from "@material-ui/core";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import Grid from "@material-ui/core/Grid";
@@ -50,7 +50,7 @@ const styles = () => ({
   checked: {},
 });
 
-/* function calcular() {
+function calcular() {
   const hb = Number(document.getElementById('valorHb').value);
 
   if(hb == 0 || hb == null)
@@ -60,11 +60,11 @@ const styles = () => ({
 
   else
   {
-    alert("vai tomar no cu!")
-    var x =  (hb / 2);
     
+    var x =  (hb / 2);
+   
   }
-} */
+}
 function WireInfo(props) {
   const { classes } = props;
   const ref = useRef();
@@ -98,7 +98,7 @@ function WireInfo(props) {
               <Grid container direction="row" className={classes.mainHeader}>
                 <Grid item xs={8}>
                   <Typography className={classes.primaryColor} variant="h4">
-                    Formalário do Paciente
+                    Formulário do Paciente
                   </Typography>
                 </Grid>
               </Grid>
@@ -108,6 +108,19 @@ function WireInfo(props) {
                 className={classes.mainContent}
                 spacing={1}
               >
+                 <Grid item xs={7}>
+                  <TextField
+                    style={{ width: 400 }}
+                    margin="normal"
+                    variant="outlined"
+                    label="Nome"
+                    id="nome"
+                    name="nome"
+                    onChange={handleInputChange}
+                    value={values.nome}
+                  />
+                </Grid>
+
                 <Grid item xs={7}>
                   <FormLabel className={classes.lineBreak} component="legend">
                     Sexo
@@ -130,36 +143,13 @@ function WireInfo(props) {
                     </RadioGroup>
                   </FormControl>
                 </Grid>
-                <Grid item xs={7}>
+               
+                <table>
+                  <tr>
+                    <td>
+                    <Grid item xs={7}>
                   <TextField
-                    style={{ width: 400 }}
-                    margin="normal"
-                    variant="outlined"
-                    label="Nome"
-                    id="nome"
-                    name="nome"
-                    onChange={handleInputChange}
-                    value={values.nome}
-                  />
-                </Grid>
-
-                <Grid item xs={7}>
-                  <TextField
-                    style={{ width: 400 }}
-                    margin="normal"
-                    variant="outlined"
-                    label="Idade"
-                    id="idade"
-                    type="number"
-                    name="idade"
-                    onChange={handleInputChange}
-                    value={values.idade}
-                  />
-                </Grid>
-
-                <Grid item xs={7}>
-                  <TextField
-                    style={{ width: 400 }}
+                    style={{ width: 100 }}
                     margin="normal"
                     variant="outlined"
                     label="Registro"
@@ -169,10 +159,11 @@ function WireInfo(props) {
                     value={values.registro}
                   />
                 </Grid>
-
-                <Grid item xs={7}>
+                    </td>
+                    <td>
+                    <Grid item xs={7}>
                   <TextField
-                    style={{ width: 400 }}
+                    style={{ width: 185 }}
                     margin="normal"
                     variant="outlined"
                     id="data"
@@ -182,7 +173,10 @@ function WireInfo(props) {
                     value={values.data}
                   />
                 </Grid>
-
+                    </td>
+                  </tr>
+                </table>
+    
                 <Grid item xs={7}>
                   <TextField
                     style={{ width: 400 }}
@@ -1317,8 +1311,327 @@ function WireInfo(props) {
                   <Divider />
                 </Grid>
                 <Grid item xs={7}>
+                  <table> 
+                    <tr>
+                    <td> 
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                    <b>Hb</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Valor Hb"
+                      id="valorHb"
+                      name="valorHb"
+                      onChange = {calcular}
+                     
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                    <b>HTC</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Valor HTC"
+                      id="valorHTC"
+                      name="valorHTC"
+                      onChange = {calcular}
+                     
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td> 
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                    <b>Leuco</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Leuco"
+                      id="valorLeuco"
+                      name="valorLeuco"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td> 
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                    <b>Plaq</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Plaq"
+                      id="valorPlaq"
+                      name="valorPlaq"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                  <b>Na+</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Na+"
+                      id="valorNA"
+                      name="valorNA"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  </tr>
+                  <tr>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                  <b>K+</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="K+"
+                      id="valorK"
+                      name="valorK"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                  <b>Ureia</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Ureia"
+                      id="valorUreia"
+                      name="valorUreia"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                  <b>Creat</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Creat"
+                      id="valorCreat"
+                      name="valorCreat"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                  <b>RNI</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="RNI"
+                      id="valorRNI"
+                      name="valorRNI"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                  <b>PTTa</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="PTTa"
+                      id="valorPTT"
+                      name="valorPTT"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  </tr>
+                  <tr>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                  <b>Glic</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Glic"
+                      id="valorGlic"
+                      name="valorGlic"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                  <b>GlicoHB</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="GlicoHB"
+                      id="valorglicoHB"
+                      name="valorglicoHB"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                  <b>ECG</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="ECG"
+                      id="valorECG"
+                      name="valorECG"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  
+                  </tr>
+                   </table>
+                 
+                  <FormGroup>
+                  <FormControl component="fieldset">
+              
+          
+                <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="legend">
+                  OUTROS (COMPLEMENTARES) 
+                  </Typography>
+                  <Divider />
+                </Grid>
+                <Grid item xs={7}>
                   <FormLabel className={classes.lineBreak} component="legend">
-                  <b>Hb</b>
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="outrosExameSim"
+                        id="outrosExameSim"
+                        label="Sim"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                       <FormControlLabel
+                        value="outrosExameNao"
+                        id="outrosExameNao"
+                        label="Não"
+                        control={<Radio color="green" />}
+                      />                      
+                    </RadioGroup>
+                    <TextField
+                      style={{ width: 400 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="Digite Histórico de Outros Exames Complementares"
+                      id="outrosSim"
+                      name="outrosSim"
+                      onChange={handleInputChange}
+                      value={values.outrosSim}
+                    />
+                    
+                  </FormControl>
+                  
+                  </Grid>
+                
+                  <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="h6">
+                  EXAME FÍSICO - DADOS ANTROPOMÉTRICOS:
+                  </Typography>
+                  <Divider />
+                  </Grid>
+
+                    <table>
+                      <tr>
+                      <td>
+                  <FormLabel className={classes.lineBreak} component="legend"> 
+                  <b>PESO</b>
+                    <FormGroup>
+                    <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="PESO"
+                      id="valorPESO"
+                      name="valorPESO"
+                      onChange = {calcular}
+                    />
+                    </FormControl>
+                    </FormGroup>
+                  </FormLabel>
+                  </td>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  <b>ALTURA</b>
                   </FormLabel>
                   <FormGroup>
                   <FormControl component="fieldset">
@@ -1326,16 +1639,371 @@ function WireInfo(props) {
                       style={{ width: 100 }}
                       margin="normal"
                       variant="outlined"
-                      label="Valor Hb"
-                      id="valorHb"
-                      input type = "text"
-                      name="valorHb"
-                   /*    onChange={calcular()} */
-                     
-                      
+                      label="ALTURA"
+                      id="valorALTURA"
+                      name="valorALTURA"
+                      onChange = {calcular}
                     />
+                  </FormControl>
+                  </FormGroup>
+                  </td>
+                  <td>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  <b>IMC</b>
+                  </FormLabel>
+                  <FormGroup>
+                  <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="IMC"
+                      id="valorIMC"
+                      name="valorIMC"
+                      onChange = {calcular}
+                    />
+                  </FormControl>
+                  </FormGroup>
+                  </td>
+                      </tr>
+                      <tr>
+                        <td>
+                        <FormLabel className={classes.lineBreak} component="legend">
+                  <b>PA</b>
+                  </FormLabel>
+                  <FormGroup>
+                  <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="PA"
+                      id="valorPA"
+                      name="valorPA"
+                      onChange = {calcular}
+                    />
+                  </FormControl>
+                  </FormGroup>
+                        </td>
+                        <td>
+                        <FormLabel className={classes.lineBreak} component="legend">
+                  <b>FC</b>
+                  </FormLabel>
+                  <FormGroup>
+                  <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="FC"
+                      id="valorFC"
+                      name="valorFC"
+                      onChange = {calcular}
+                    />
+                  </FormControl>
+                  </FormGroup>
+                        </td>
+                        <td>
+                        <FormLabel className={classes.lineBreak} component="legend">
+                  <b>SATO2</b>
+                  </FormLabel>
+                  <FormGroup>
+                  <FormControl component="fieldset">
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="normal"
+                      variant="outlined"
+                      label="ECG"
+                      id="valorSATO"
+                      name="valorSATO"
+                      onChange = {calcular}
+                    />
+                  </FormControl>
+                  </FormGroup>
+                        </td>
+                      </tr>
+                    </table>
+
+                <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="h6">
+                  VIAS AÉREAS
+                  </Typography>
+                  <Divider />
+                  </Grid>
+
+                    <table>
+                      <tr>
+                        <td>
+                        <FormLabel className={classes.lineBreak} component="legend">
+                        <b>MALLAMPATTI</b>
+                        </FormLabel>
+                        <FormGroup>
+                        <FormControl component="fieldset">
+                        <TextField
+                        style={{ width: 150 }}
+                        margin="normal"
+                        variant="outlined"
+                        label="MALLAMPATTI"
+                        id="valorMALLA"
+                        name="valorMALLA"
+                        onChange = {calcular}
+                        />
+                        </FormControl>
+                        </FormGroup>
+                        </td>
+                        <td>
+                        <FormLabel className={classes.lineBreak} component="legend">
+                        <b>CIRCUNFERÊNICA CERVICAL </b>
+                        </FormLabel>
+                        <FormGroup>
+                        <FormControl component="fieldset">
+                        <TextField
+                        style={{ width: 250 }}
+                        margin="normal"
+                        variant="outlined"
+                        label="CIRCUNFERÊNICA CERVICAL "
+                        id="valorCervical"
+                        name="valorCervical"
+                        onChange = {calcular}
+                        />
+                        </FormControl>
+                        </FormGroup>
+                        </td>
+                        </tr>
+                    </table>
+                 
+                    <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="legend">
+                  PREDIÇÃO DE VENTILAÇÃO DIFÍCIL? 
+                  </Typography>
+                  <Divider />
+                </Grid>
+                <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="ventilacaoDificilSim"
+                        id="ventilacaoDificilSim"
+                        label="Sim"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                       <FormControlLabel
+                        value="ventilacaoDificilNao"
+                        id="ventilacaoDificilNao"
+                        label="Não"
+                        control={<Radio color="green" />}
+                      />                      
+                    </RadioGroup>
+                                        
+                  </FormControl>
+                  
+                  </Grid>
+                  <Grid item xs={7}>
+                  <Typography className={classes.lineBreak} variant="legend">
+                  PREDITORES  
+                  </Typography>
+                  <Divider />
+                </Grid>
+
+                <table>
+                  <tr>
+                    <td>
+                    <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="barbaSim"
+                        id="barbaSim"
+                        label="Barba"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      </RadioGroup>
+                      </FormControl>
+                      </Grid>
+                    </td>
+                    <td>
+                    <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="imcMaior26"
+                        id="imcMaior26"
+                        label="IMC > 26kg/m2"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      </RadioGroup>
+                      </FormControl>
+                      </Grid>
+                    </td>
+                    <td>
+                    <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="historicoRoncoSim"
+                        id="historicoRoncoSim"
+                        label="Histórico de ronco"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      </RadioGroup>
+                      </FormControl>
+                      </Grid>
+                    </td>
+                    <td>
+                    <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="saos"
+                        id="saos"
+                        label="Histórico de SAOS"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      </RadioGroup>
+                      </FormControl>
+                      </Grid>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td>
+                    <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="sexoMasculino"
+                        id="sexoMasculino"
+                        label="Masculino"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      </RadioGroup>
+                      </FormControl>
+                      </Grid>
+                    </td>
+
+                    <td>
+                    <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="circuferencia40"
+                        id="circuferencia40"
+                        label="Circunferência cervical > 40 cm"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      </RadioGroup>
+                      </FormControl>
+                      </Grid>
+                    </td>
+                    <td>
+                    <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="mallampatti"
+                        id="mallampatti "
+                        label="Mallampatti 3 ou 4"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      </RadioGroup>
+                      </FormControl>
+                      </Grid>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td>
+                    <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="Edentado"
+                        id="Edentado "
+                        label="Edentado"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      </RadioGroup>
+                      </FormControl>
+                      </Grid>
+                    </td>
+
+                    <td>
+                    <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="mandibula"
+                        id="mandibula"
+                        label="Mandíbula protrundida"
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      </RadioGroup>
+                      </FormControl>
+                      </Grid>
+                    </td>
+
+                    <td>
+                    <Grid item xs={7}>
+                  <FormLabel className={classes.lineBreak} component="legend">
+                  
+                  </FormLabel>
+                <FormControl component="fieldset">
+                    <RadioGroup row>
+                    <FormControlLabel
+                        value="idademaior55"
+                        id="idademaior55"
+                        label="Idade > 55 anos."
+                        control={<Radio color="primary" />}
+                        color="primary"
+                      />
+                      </RadioGroup>
+                      </FormControl>
+                      </Grid>
+                    </td>
+                  </tr>
+                </table>
+               
                 
-                   
+
+
                   </FormControl>
                   </FormGroup>
                 </Grid>
