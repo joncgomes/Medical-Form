@@ -50,6 +50,6 @@ $ npm start
 
 <br><br>
 ## 🔓 License 
-MIT © [Jhonathan]()
+MIT ©  Jonathan
 
  
